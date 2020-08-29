@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>bookshelf</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+  </head>
+  <main>
+    <header>bookshelf</header>
+    <body>
+      <div id="positioningdiv">
+      <button id="addbook">add book</button>
+        <div id="arrowdiv">
+          <img id="arrow" src="media/arrow.png">
+          <p>start building your library</p>
+        </div>
+    </div>
+      
+      <section id="section">
+      </section>
+      <div class="modal">
+        <div class="modalcontent">
+          <span class="closebutton">&times;</span>
+          <h1>book info</h1>
+            <input type="text" id="title" name="title" placeholder="title" required><br>
+            <input type="text" id="author" name="author" placeholder="author" required><br>
+            <input type="text" id="pages" name="pages" placeholder="# pages" required><br>
+            <input type="radio" id="read" name="readstatus" value="read">
+            <label for="read">read</label>
+            <input type="radio" id="unread" name="readstatus" value="unread">
+            <label for="unread">unread</label><br>
+            <input id="submit" type="button" value="add to collection">
+        </div>
+      </div>
+    </body>
+  </main>
+  <footer>
+    <button id="credit">ⓘ</button>
+    <div id="flaticon">arrow made by <a class="link" href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a class="link" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  </footer>
+  <script src="script.js" type="text/javascript"></script>
+</html>
+
