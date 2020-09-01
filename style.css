@@ -5,12 +5,18 @@
 }
 
 header {
-  letter-spacing: 0.2rem;
   font-size: 5rem;
-  color: hsl(0, 0%, 40%);
-  font-family: 'Domine';
+  margin-top: 2rem;
 }
 
+header,
+h1 {
+  font-family: 'Domine', serif;
+  color: hsl(0, 0%, 40%);
+  letter-spacing: 0.2rem;
+}
+
+/*to make arrow/p absolutely positioned with button*/
 #positioningdiv {
   display: block;
   margin: 0 auto;
@@ -62,6 +68,38 @@ p {
   color: hsl(0, 0%, 70%);
 }
 
+#addbook {
+  display: block;
+  margin: 0 auto;
+  padding: 0.5rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 0.8rem;
+}
+
+#submit {
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  margin-bottom: 2rem;
+}
+
+#addbook,
+#submit {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: hsla(0, 0%, 100%, 0.85);
+  background-color: darksalmon;
+  margin-top: 2rem;
+  border: none;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+#addbook:hover,
+#submit:hover,
+.closebutton:hover,
+#credit:hover {
+  cursor: pointer;
+}
+
 #section {
   display: flex;
   flex-wrap: wrap;
@@ -78,48 +116,19 @@ p {
   margin: 5px;
   padding: 1rem;
   background-color: lavender;
-  font-family: 'Montserrat'
 }
 
-.remove,
-.markread {
+.card,
+.modalcontent {
+  font-family: 'Monteserrat';
   border: none;
-  font-weight: 500;
-  color: hsl(0, 0%, 5%);
-  background-color: transparent;
-  position: absolute;
-  bottom: 1rem;
-  /*visibility: hidden;*/
-  
-}
-.remove {
-  left: 1.5rem;
-}
-
-.markread {
-  right: 1.5rem;
-}
-
-.remove:hover,
-.markread:hover {
-  font-weight: bold;
-  cursor: pointer;
-  background-color: transparent;
-  /*visibility: visible;*/
+  border-radius: 0.8rem;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .card:hover {
   background-color: lavender;
   opacity: 50%;
-}
-
-#addbook {
-  display: block;
-  margin: 0 auto;
-  padding: 0.5rem 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  font-family: 'Montserrat';
 }
 
 .modal {
@@ -133,15 +142,11 @@ p {
 }
 
 h1 {
-  font-family: 'Domine';
-  letter-spacing: 0.2rem;
   font-weight: bold;
   margin-bottom: 2rem;
-  color: hsl(0, 0%, 40%);
 }
 
 .modalcontent {
-  font-family: 'Montserrat';
   position: absolute;
   width: 20rem;
   margin-left: auto;
@@ -149,7 +154,7 @@ h1 {
   left: 0;
   right: 0;
   color: hsl(0, 0%, 40%);
-  background-color: white;
+  /*gradient*/
   background: rgb(255,255,255);
   background: linear-gradient(0deg, rgba(255,255,255,1) 72%, rgba(233,150,122,1) 100%);
 }
@@ -161,11 +166,16 @@ h1 {
   font-size: 1.8rem;
 }
 
+.closebutton:hover {
+  color: hsla(0, 0%, 100%, 0.85);
+}
+
 .showmodal {
   opacity: 1;
   visibility: visible;
 }
 
+/*text input fields*/
 input:not([type=submit]):not([type=radio]) {
   width: 12rem;
   height: 2rem;
@@ -174,7 +184,7 @@ input:not([type=submit]):not([type=radio]) {
   box-sizing: border-box;
   border: 1px solid lightgray;
   border-radius: 0.5rem;
-  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 input[type="radio"] {
@@ -184,24 +194,12 @@ input[type="radio"] {
   color: hsl(0, 0%, 40%);
 }
 
+
+/*radio button label*/
 label {
   color: hsl(0, 0%, 50%);
   font-family: 'Montserrat';
   font-size: 1.2rem;
-}
-
-#submit {
-  font-family: 'Montserrat';
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.2rem;
-  margin-bottom: 2rem;
-}
-
-#addbook,
-#submit:hover,
-.closebutton {
-  cursor: pointer;
 }
 
 input::placeholder,
@@ -209,12 +207,30 @@ input:placeholder-shown {
   text-indent: 0.5rem;
 }
 
-header,
-#addbook,
-#submit {
-  margin-top: 2rem;
+.remove,
+.markread {
+  border: none;
+  font-weight: 500;
+  color: hsl(0, 0%, 5%);
+  background-color: transparent;
+  position: absolute;
+  bottom: 1rem;
 }
 
+.remove {
+  left: 1.5rem;
+}
+
+.markread {
+  right: 1.5rem;
+}
+
+.remove:hover,
+.markread:hover {
+  font-weight: bold;
+  cursor: pointer;
+  background-color: transparent;
+}
 header,
 .modalcontent {
   text-align: center;
@@ -227,33 +243,8 @@ h1,
 }
 
 .card,
-#addbook,
-.modalcontent,
-#submit {
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-}
-
-#addbook,
-.closebutton:hover,
-#submit {
-  color: hsla(0, 0%, 100%, 0.85);
-}
-
-#addbook,
-#submit {
-  background-color: darksalmon;
-}
-
-#addbook,
-.modalcontent,
-#submit {
-  border: none;
-}
-
-.card,
-#addbook,
 .modalcontent {
-  border-radius: 0.8rem;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 #credit {
@@ -269,7 +260,6 @@ h1,
 
 #credit:hover {
   transform: scale(1.2, 1.2);
-  cursor: pointer;
 }
 
 #flaticon {
