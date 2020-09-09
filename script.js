@@ -52,8 +52,11 @@ function createCard(newBook) {
   //set IDs for each card
   let setCardIds = () => {
     let cardId = document.getElementsByClassName("card");
-    card.id = cardId.length - 1;
+    for (i = 0; i < cardId.length; i++) {
+      cardId[i].id = i;
+    }
   };
+  setCardIds();
 
   //create remove/read buttons, default visibility is hidden
   let remove = document.createElement("button");
