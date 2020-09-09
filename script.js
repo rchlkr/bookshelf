@@ -61,14 +61,21 @@ function createCard(newBook) {
   card.appendChild(remove);
   card.appendChild(markRead);
   remove.textContent = "remove";
-  markRead.textContent = "read";
+  markRead.innerHTML = "&#x2714;";
   remove.style.visibility = "hidden";
   markRead.style.visibility = "hidden";
 
   //when mouse hovers over card, show remove/edit
   card.addEventListener("mouseover", function () {
+    let index = card.id;
     remove.style.visibility = "visible";
-    markRead.style.visibility = "visible";
+    if (myLibrary[index].read === "&#x2714;") {
+      console.log(readStatus);
+      markRead.style.visibility = "hidden";
+    } else {
+      console.log(readStatus);
+      markRead.style.visibility = "visible";
+    }
   });
   //when mouse exits card, hide remove/edit
   card.addEventListener("mouseout", function () {
@@ -87,6 +94,7 @@ function createCard(newBook) {
   let changeStatus = () => {
     let index = card.id;
     myLibrary[index].read = "&#x2714;";
+    console.log(readStatus);
     readStatus.innerHTML = "&#x2714;";
   };
   markRead.addEventListener("click", changeStatus);
@@ -132,7 +140,6 @@ info.addEventListener("mouseover", function () {
 info.addEventListener("mouseout", function () {
   flatIcon.style.visibility = "hidden";
 });
-
 /*
 todo:
   localstorage
