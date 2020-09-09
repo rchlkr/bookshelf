@@ -50,8 +50,10 @@ function createCard(newBook) {
   card.style.color = "hsl(0, 0%, 45%)";
 
   //set IDs for each card
-  let cardId = document.getElementsByClassName("card");
-  card.id = cardId.length - 1;
+  let setCardIds = () => {
+    let cardId = document.getElementsByClassName("card");
+    card.id = cardId.length - 1;
+  };
 
   //create remove/read buttons, default visibility is hidden
   let remove = document.createElement("button");
@@ -67,6 +69,7 @@ function createCard(newBook) {
 
   //when mouse hovers over card, show remove/read
   let showOptions = () => {
+    setCardIds(); //updates card ids after removing book
     let index = card.id;
     remove.style.visibility = "visible";
     //always hide read if book is already read
@@ -81,18 +84,19 @@ function createCard(newBook) {
     remove.style.visibility = "hidden";
     markRead.style.visibility = "hidden";
   };
+
+  //remove button deletes card from section and myLibrary
+  let removeBook = () => {
+    let index = card.id;
+    myLibrary.splice(index, 1);
+    remove.parentElement.remove();
+  };
   //clicking read changes card value and array value
   let readStatus = document.getElementById("readStatus");
   let changeStatus = () => {
     let index = card.id;
     myLibrary[index].read = "&#x2714;";
     readStatus.innerHTML = "&#x2714;";
-  };
-  //remove button deletes card from section and myLibrary
-  let removeBook = () => {
-    let index = card.id;
-    myLibrary.splice(index, 1);
-    remove.parentElement.remove();
   };
 
   card.addEventListener("mouseover", showOptions);
