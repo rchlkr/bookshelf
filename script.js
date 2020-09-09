@@ -45,7 +45,7 @@ function createCard(newBook) {
   const card = document.createElement("article");
   section.appendChild(card);
   card.classList.add("card");
-  card.innerHTML = `<strong>${newBook.title}</strong><br><br>${newBook.author}<br><br>${newBook.pages} pages<br><br><span id="readStatus">${newBook.read}</span>`;
+  card.innerHTML = `<strong>${newBook.title}</strong><br><br>${newBook.author}<br><br>${newBook.pages} pages<br><br>${newBook.read}`;
   card.style.wordWrap = "break-word";
   card.style.color = "hsl(0, 0%, 45%)";
 
@@ -101,7 +101,7 @@ function createCard(newBook) {
   let changeStatus = () => {
     let index = card.id;
     myLibrary[index].read = "&#x2714;";
-    readStatus.innerHTML = "&#x2714;";
+    card.innerHTML = `<strong>${newBook.title}</strong><br><br>${newBook.author}<br><br>${newBook.pages} pages<br><br>&#x2714`;
   };
 
   card.addEventListener("mouseover", showOptions);
