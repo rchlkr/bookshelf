@@ -65,38 +65,39 @@ function createCard(newBook) {
   remove.style.visibility = "hidden";
   markRead.style.visibility = "hidden";
 
-  //when mouse hovers over card, show remove/edit
-  card.addEventListener("mouseover", function () {
+  //when mouse hovers over card, show remove/read
+  let showOptions = () => {
     let index = card.id;
     remove.style.visibility = "visible";
+    //always hide read if book is already read
     if (myLibrary[index].read === "&#x2714;") {
-      console.log(readStatus);
       markRead.style.visibility = "hidden";
     } else {
-      console.log(readStatus);
       markRead.style.visibility = "visible";
     }
-  });
+  };
   //when mouse exits card, hide remove/edit
-  card.addEventListener("mouseout", function () {
+  const hideOptions = () => {
     remove.style.visibility = "hidden";
     markRead.style.visibility = "hidden";
-  });
-
-  //remove button deletes card from section and myLibrary
-  remove.addEventListener("click", function () {
-    let index = card.id;
-    myLibrary.splice(index, 1);
-    remove.parentElement.remove();
-  });
+  };
   //clicking read changes card value and array value
   let readStatus = document.getElementById("readStatus");
   let changeStatus = () => {
     let index = card.id;
     myLibrary[index].read = "&#x2714;";
-    console.log(readStatus);
     readStatus.innerHTML = "&#x2714;";
   };
+  //remove button deletes card from section and myLibrary
+  let removeBook = () => {
+    let index = card.id;
+    myLibrary.splice(index, 1);
+    remove.parentElement.remove();
+  };
+
+  card.addEventListener("mouseover", showOptions);
+  card.addEventListener("mouseout", hideOptions);
+  remove.addEventListener("click", removeBook);
   markRead.addEventListener("click", changeStatus);
 }
 
@@ -140,6 +141,7 @@ info.addEventListener("mouseover", function () {
 info.addEventListener("mouseout", function () {
   flatIcon.style.visibility = "hidden";
 });
+
 /*
 todo:
   localstorage
