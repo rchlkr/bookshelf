@@ -75,12 +75,14 @@ function createCard(newBook) {
     setCardIds(); //updates card ids after removing book
     let index = card.id;
     remove.style.visibility = "visible";
-    //always hide read if book is already read
-    if (myLibrary[index].read === "&#x2714;") {
-      markRead.style.visibility = "hidden";
-    } else {
-      markRead.style.visibility = "visible";
-    }
+    myLibrary.forEach((book) => {
+      if (myLibrary[index].read === "&#x2714;") {
+        markRead.style.visibility = "hidden";
+      } else {
+        markRead.style.visibility = "visible";
+      }
+    });
+    //always hide checkmark if book is already read
   };
   //when mouse exits card, hide remove/edit
   const hideOptions = () => {
