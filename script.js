@@ -21,9 +21,9 @@ function addBookToLibrary() {
 
   //determine readstatus based on checked/unchecked
   if (newRead.checked === true) {
-    newRead.value = "read";
+    newRead.value = "&#x2714;";
   } else {
-    newRead.value = "unread";
+    newRead.value = "";
   }
 
   //create new book object, add it to myLibrary & create display card
@@ -84,11 +84,12 @@ function createCard(newBook) {
   });
   //clicking read changes card value and array value
   let readStatus = document.getElementById("readStatus");
-  markRead.addEventListener("click", function () {
+  let changeStatus = () => {
     let index = card.id;
-    myLibrary[index].read = "read";
-    readStatus.innerHTML = "read";
-  });
+    myLibrary[index].read = "&#x2714;";
+    readStatus.innerHTML = "&#x2714;";
+  };
+  markRead.addEventListener("click", changeStatus);
 }
 
 //when addbook is clicked, book info popup appears
