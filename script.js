@@ -149,7 +149,7 @@ function windowOnClick(event) {
 let introDiv = document.getElementById("arrowdiv");
 window.addEventListener("load", function () {
 	//hide if localStorage is populated
-	if (!localStorage.getItem("book")) {
+	if (myLibrary.length > 0) {
 		introDiv.style.visibility = "hidden";
 	} else {
 		introDiv.style.visibility = "visible";
@@ -171,7 +171,10 @@ info.addEventListener("mouseout", function () {
 
 /*
 ideas:
-  only show title on small card, clicking expands card to show all details
-  group by read/unread
+
+	only show title on small card, clicking expands card to show all details
+	
+	group by read/unread
+	
   currently reading option
 */
